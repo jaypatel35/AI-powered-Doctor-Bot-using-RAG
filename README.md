@@ -77,11 +77,13 @@ RAG Retrieval → GPT-3.5 → Structured Diagnosis
 - Framework: LangChain
 - UI: Streamlit
 
-##  Evaluation
+## Evaluation
 
-- **Faithfulness**: 0.71
-- **Answer Relevancy**: 0.87
-- **Context Precision**: 0.94
+I tested my Doctor Bot on real symptom cases like fever and cough, chest pain with shortness of breath, severe headache with light sensitivity, stomach issues. And calculated three metrics and observed how much accurate answer my system was giving. It gave me: 
+- Faithfulness: 0.83
+- Answer Relevancy: 0.90
+- Context Precision: 0.99
+So, from this results, I confirmed that  retrieval was very accurate and the answers are mostly relevant, but faithfulness was still less in some cases I tested and needs improvement.
 
 ##  Key Learnings
 
