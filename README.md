@@ -91,7 +91,7 @@ So, from this results, I confirmed that  retrieval was very accurate and the ans
 - RAG implementation from scratch
 - Medical AI safety considerations
 - Prompt engineering for structured outputs
-- Balancing accuracy vs. cost
+- Balancing accuracy.
 
 ## References:
 
