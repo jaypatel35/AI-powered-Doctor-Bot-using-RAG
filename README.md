@@ -29,7 +29,7 @@ My DoctorBot helps patients better communicate their symptoms before pre-visitin
 
 ##  Features
 
--  **Dual Knowledge Base**: 600-page medical textbook + MedlinePlus (2,333 chunks)
+-  **Dual Knowledge Base**: Huge medical textbook + MedlinePlus (chunks)
 -  **Smart Follow-ups**: 3 contextual questions for better diagnosis
 -  **Emergency Detection**: Immediate alerts for critical symptoms
 -  **RAG Pipeline**: FAISS + BGE embeddings + GPT-3.5
