@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Secrets
+.streamlit/secrets.toml
+.env
+
+# FAISS index files 
+# store/  # Commented out for deployment - needed for Streamlit Cloud
+vector_store/
+# *.bin   # Commented out for deployment - needed for Streamlit Cloud
+# *.pkl   # Commented out for deployment - needed for Streamlit Cloud
+*.index
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
