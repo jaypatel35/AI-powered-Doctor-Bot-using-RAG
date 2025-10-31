@@ -15,10 +15,10 @@ ENV/
 .env
 
 # FAISS index files 
-# store/  # Commented out for deployment - needed for Streamlit Cloud
+# store/  # For deployment only- needed for Streamlit Cloud
 vector_store/
-# *.bin   # Commented out for deployment - needed for Streamlit Cloud
-# *.pkl   # Commented out for deployment - needed for Streamlit Cloud
+# *.bin   #  Needed only for deployment for Streamlit Cloud
+# *.pkl   #  Needed only for deployment for Streamlit Cloud
 *.index
 
 # IDE
