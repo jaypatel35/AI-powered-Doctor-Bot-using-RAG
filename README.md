@@ -10,12 +10,18 @@ I started my work by first collecting data sources I wanted to use for creating 
 
 Next, I created embeddings of those chunks using BGE-small-en-v1.5 and saved them in a simple, fast index (FAISS) that is Facebook AI Similarity Search strategy. It is a library created by Meta that helps system quickly find similar items based on their meaning, not just exact words. So, I could quickly find the most relevant passages for any symptom. My RAG folder "chunker.py" has Feature Engineering steps, how I splitted the unified data into overlapping text chunks. Each chunk I created has metadata such as title, source type, and URL, which allowed my system to accurately provide source citation and filtering during retrieval. In my build_index.py, you can see my work how I created dense vector embeddings and built a FAISS similarity index. These transformations, I did for converting clean medical text into searchable numerical representations and it is the backbone of my RAG pipeline I created.
 
-So, when a user describes symptoms, the system searches this index, pulls a few trusted passages, and as I conntected my retrieval results to LLM GPT-3.5, my system gives to it with a clear prompt that tells it exactly how to format the result like a short triage note with possible conditions (not a diagnosis), urgency level, red flags, and tests a clinician might discuss. So, it give response as per it. Every answer shows citations back to the textbook or MedlinePlus so the reader can see where the information came from and it is easy for them to trust.
- 
+So, when a user describes symptoms, the system searches this index, pulls a few trusted passages, and as I conntected my retrieval results to LLM GPT-3.5, my system gives to it with a clear prompt that tells it exactly how to format the result like a short triage note with possible conditions (not a diagnosis), urgency level, red flags, and tests a clinician might discuss.So, it give response as per it. Every answer shows citations back to the textbook or MedlinePlus so the user's can see where the information came from and it is easy for them to trust. 
+
+Overall, for my analysis methods, I focused on the healthcare screening problem as I mentioned and chose the RAG approch because it combines reliable retrieval with GPT-3.5’s language generation, keeping the output grounded, safe, and easy for clinicians to understand.
 
 ## How my Bot follows Retrieval + Generation (RAG Pipeline) strategy:
 
-When someone types their symptoms as input, it follows my end-to-end RAG pipeline I created and works as per that and first turn that text into an embedding and search my FAISS index for the top five most relevant chunks from Symptom to Diagnosis and MedlinePlus the sources from which I created my knowledge base.
+When someone types their symptoms as input, it follows my end-to-end RAG pipeline I created. For ML methods and model selection, I had used a Retrieval-Augmented Generation (RAG) architecture combining three key models:
+•	BGE-small-en-v1.5 for text embeddings (feature representation),
+•	FAISS for fast vector similarity search and retrieval,
+•	GPT-3.5 for structured response generation.
+
+I choose these models for creating end-to-end RAG pipeline as I mentioned and my system works as per that and first turn that text into an embedding and search my FAISS index for the top five most relevant chunks from Symptom to Diagnosis and MedlinePlus the sources from which I created my knowledge base.
 
 For the final response, I had written prompts and set clear output format it should follow. So, following that my Bot asks users follow up questions just for quick checks and I then connected the retrieval results to LLM GPT-3.5 which returns the response to user’s symptoms in form of possible conditions to consider (not a diagnosis), urgency level, red-flag warnings, and tests a clinician might discuss with citations back to the exact passages that informed the answer. I had designed separate prompt for follow-up questions that forces one question at a time with 2–3 multiple-choice options, so the conversation stays simple and focused. 
 
@@ -32,7 +38,7 @@ My DoctorBot helps patients better communicate their symptoms before pre-visitin
 -  **Dual Knowledge Base**: Huge medical textbook + MedlinePlus (chunks)
 -  **Smart Follow-ups**: 3 contextual questions for better diagnosis
 -  **Emergency Detection**: Immediate alerts for critical symptoms
--  **RAG Pipeline**: FAISS + BGE embeddings + GPT-3.5
+-  **RAG Pipeline**: FAISS + BGE embeddings + GPT-3.5 
 -  **Source Transparency**: Shows which medical texts informed the response
 -  **Clean UI**: Accessible Streamlit interface
 
@@ -44,7 +50,7 @@ My DoctorBot helps patients better communicate their symptoms before pre-visitin
 
 ### Installation
 ```bash
-cd AI-Doctor-bot-with-RAG
+cd AI-Doctor-bot-using-RAG
 
 # Create virtual environment
 python -m venv venv
@@ -86,9 +92,10 @@ I tested my Doctor Bot on real symptom cases like fever and cough, chest pain wi
 
 So, from this results, I confirmed that  retrieval was very accurate and the answers are mostly relevant, but faithfulness was still less in some cases I tested and needs improvement.
 
-##  Key Learnings
+##  Problem Solving and Key Learnings
 
-- RAG implementation from scratch
+- RAG end-to-end implementation from scratch
+- Learned how to solve healtcare industry problem.
 - Medical AI safety considerations
 - Prompt engineering for structured outputs
 - Balancing accuracy.
